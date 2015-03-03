@@ -71,18 +71,7 @@ void Game::createPrimitivesToRender() {
 
 	myGeometry.LoadScene();
 
-	triangle3DPosition=glm::vec3(0.4,0.3,0);	//Center the triangle in the middle of the screen
-	triangleRadius=0.2;
 	
-	data[0].setPosition(triangle3DPosition.x + 0, triangle3DPosition.y+0.2, 0.0f);
-	data[0].setColor(0, 255, 0, 255);
-
-	data[1].setPosition(triangle3DPosition.x - 0.1*sqrt(3.0f), triangle3DPosition.y - 0.1f, 0.0f);
-	data[1].setColor(255, 0, 0, 255);
-
-	data[2].setPosition(triangle3DPosition.x + 0.1*sqrt(3.0f), triangle3DPosition.y - 0.1f, 0.0f);
-	data[2].setColor(0, 0, 255, 255);
-
 }
 
 /*
@@ -128,7 +117,7 @@ void Game::processInput() {
 			cout << "Button down" << endl;
 			break;		
 		case SDL_KEYDOWN:
-			switch (evnt.key.keysym.sym){
+			/*			switch (evnt.key.keysym.sym){
 			case SDLK_DOWN:
 				cout << "Key down pressed" << endl;
 				data[0].setPosition(data[0].position.x, data[0].position.y -= 0.01, data[0].position.z);
@@ -162,6 +151,7 @@ void Game::processInput() {
 				modelMatrix = glm::scale(modelMatrix, glm::vec3(0.75, 0.75, 0.75));
 				break;
 			}
+			*/
 		default:
 			break;
 		}
@@ -180,7 +170,7 @@ void Game::drawGame() {
 
 		//Bind the GLSL program. Only one code GLSL can be used at the same time
 	_colorProgram.use();
-
+	//GameElement currentElement;
 		//Pass the matrix information to the shader
 			//Get the uniform variable location
 			//Pass the matrix
@@ -188,10 +178,13 @@ void Game::drawGame() {
 				//2nd parameter: the number of matrices
 				//3rd parameter: if we want to tranpose the matrix
 				//4th parameter: the matrix data
+	glm::mat4 modelMatrix;
+	modelMatrix = glm::rotate(modelMatrix,glm::radians(45.0f),glm::vec3(1,25,3));
+	modelMatrix = glm::scale(modelMatrix, myGeometry.returnScale(0));
 	GLuint modelMatrixUniform = _colorProgram.getUniformLocation("modelMatrix");
 	glUniformMatrix4fv(modelMatrixUniform, 1, GL_FALSE, glm::value_ptr(modelMatrix));
 		//Send data to GPU
-	_openGLBuffers.sendDataToGPU(data,MAX_VERTICES);
+	_openGLBuffers.sendDataToGPU(myGeometry.ReturnData(),MAX_VERTICES);
 
 		//Unbind the program
 	_colorProgram.unuse();
@@ -221,9 +214,11 @@ void Game::updateGameObjects() {
 	//modelMatrix = glm::translate(modelMatrix, glm::vec3(triangle3DPosition.x, triangle3DPosition.y, 0.0f));
 	//
 	//	//2nd: Rotate 90º along the z-axis
-	//modelMatrix = glm::rotate(modelMatrix, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+	//modelMatrix = glm::rotate(modelMatrix, glm::radians(45.0f), glm::vec3(0.0f, 0.0f, 1.0f));
 	//	
 	//	//1st: Move the triangle to the center
 	//modelMatrix = glm::translate(modelMatrix, glm::vec3(-triangle3DPosition.x, -triangle3DPosition.y, 0.0f));	
+
+
 
 }

@@ -14,7 +14,7 @@
 #include "OpenGLBuffers.h"
 #include "Vertex.h"
 #include "Geometry.h"
-#define MAX_VERTICES 3
+#define MAX_VERTICES 36
 
 //Game has three possible states: INIT (Preparing environment), PLAY (Playing) or EXIT (Exit from the game)
 enum class GameState{INIT, PLAY, EXIT};
@@ -36,10 +36,6 @@ class Game {
 		GLSLProgram _colorProgram;		//Manage the shaders
 		FPSLimiter _fpsLimiter;			//Manage the synchronization between frame rate and refresh rate
 		OpenGLBuffers _openGLBuffers;	//Manage the openGL buffers
-		Vertex data[MAX_VERTICES];		//Data structure that contains the information to display
-		glm::mat4 modelMatrix;			//Model matrix transformation
-		glm::vec3 triangle3DPosition;	//Description of the triangle
-		long triangleRadius;
 		Geometry myGeometry;
 
 			//Internal methods

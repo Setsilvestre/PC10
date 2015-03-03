@@ -1,8 +1,15 @@
-﻿Compilación iniciada a las 02/03/2015 16:48:54.
+﻿Compilación iniciada a las 03/03/2015 13:52:27.
      1>Proyecto "D:\OpenGL\DrawCube\DrawCube.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Geometry.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt "Ex6-Main.cpp" Game.cpp Geometry.cpp
          Geometry.cpp
+     1>d:\opengl\drawcube\geometry.cpp(101): warning C4305: 'argumento' : truncamiento de 'int' a 'GLubyte'
+     1>d:\opengl\drawcube\geometry.cpp(101): warning C4309: 'argumento' : truncamiento de valor constante
+         Game.cpp
+     1>d:\opengl\drawcube\game.cpp(103): warning C4101: 'y' : variable local sin referencia
+     1>d:\opengl\drawcube\game.cpp(103): warning C4101: 'x' : variable local sin referencia
+         Ex6-Main.cpp
+         Generando código...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\OpenGL\Debug\DrawCube.exe" /INCREMENTAL /NOLOGO sdl2.lib sdl2main.lib opengl32.lib glew32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\OpenGL\Debug\DrawCube.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\OpenGL\Debug\DrawCube.lib" /MACHINE:X86 Debug\ErrorManagement.obj
          "Debug\Ex6-Main.obj"
@@ -12,10 +19,9 @@
          Debug\GLSLProgram.obj
          Debug\OpenGLBuffers.obj
          Debug\Window.obj
-     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: la biblioteca predeterminada'msvcrt.lib' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
          DrawCube.vcxproj -> D:\OpenGL\Debug\DrawCube.exe
      1>Compilación del proyecto terminada "D:\OpenGL\DrawCube\DrawCube.vcxproj" (Build destinos).
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:05.79
+Tiempo transcurrido 00:00:10.87
